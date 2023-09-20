@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SearchBar = ({ onSearch}) => {
+const SearchBar = ({ onSearch }) => {
 
    const [id, setId] = useState('')
    const handleChange = (event) => {
@@ -17,6 +17,7 @@ const SearchBar = ({ onSearch}) => {
             type="search" 
             onChange={handleChange} 
             value={id} 
+            placeholder="id"
          />
          <button onClick={() => handleSearch()}>Agregar</button>
       </div>
