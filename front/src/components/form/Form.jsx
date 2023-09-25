@@ -1,5 +1,5 @@
-import { useState } from "react";
-import validation from "../validation/validation";
+import { useState, useEffect } from "react";
+import validation from "./validation";
 
 const Form = ({login}) => {
   
@@ -15,9 +15,13 @@ const Form = ({login}) => {
           ...userData,
           [event.target.name]: event.target.value,
         });
-
-        setErrors(validation(userData))
     }
+        // aca llamamos a la funcion validation con los valores de mi estato (userData) y utilizamos el setErros para que se vaya actualizando a medida que escribimos.
+    useEffect(() => {
+        if(userData.email !== '' || userData.password !== ''){
+            setErrors(validation(userData))
+        }
+    }, [userData])
 
     const handleSubmit = (event) => {
         event.preventDefault(),
@@ -25,9 +29,10 @@ const Form = ({login}) => {
     }
    
     return(
-        <form>
-            <label htmlFor="">Email:</label>
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="email">Email: </label>
             <input 
+                id="email"
                 type="email" 
                 name="email"
                 placeholder="Escriba su email"
@@ -37,18 +42,19 @@ const Form = ({login}) => {
             {errors.email !== '' && <p style={{ color: 'red' }}>{errors.email}</p>}
             <br />
 
-            <label htmlFor="">Password:</label>
+            <label htmlFor="password">Password: </label>
             <input 
-                type="text" 
+                id="password"
+                type="password" 
                 name="password" 
                 placeholder="Escriba su contraseña"
                 onChange={handleChange}
-                value={userData.password}
+                value={userData.password}  
             />
             {errors.password !== '' && <p style={{ color: 'red' }}>{errors.password}</p>}            
             <br />
 
-            <button onClick={handleSubmit}>Submit</button>
+            <button>Submit</button>
         </form>
     )
 }
