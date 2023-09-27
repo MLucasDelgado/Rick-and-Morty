@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { addFav, removeFav } from "../../redux/actions/actions";
 
 
-const Card = ({ id, name, image, onClose }) => {
+const Card = ({ id, name, image, onClose, gender }) => {
    
    const dispatch = useDispatch();
 
@@ -16,7 +16,7 @@ const Card = ({ id, name, image, onClose }) => {
          dispatch(removeFav(id))
       } else {
          setIsFav(true)
-         dispatch(addFav({ id, name, image, onClose }))
+         dispatch(addFav({ id, name, image, onClose, gender }))
       }
    } 
 

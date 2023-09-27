@@ -54,8 +54,8 @@ const App = () => {
 
 
   const [access, setAccess] = useState(false)
-  let EMAIL = 'lucas@gmail.com';
-  let PASSWORD = 'lucas22';
+  let EMAIL = 'sai@gmail.com';
+  let PASSWORD = 'anbu13';
 
   const navigate = useNavigate()
 

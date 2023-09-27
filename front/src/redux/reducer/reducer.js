@@ -1,7 +1,8 @@
-import { ADD_FAV, REMOVE_FAV } from "../action-type/action-type"
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "../action-type/action-type"
 
 const initialState = {
-    myFavorites: []
+    myFavorites: [],
+    allCharacters: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -9,8 +10,10 @@ const reducer = (state = initialState, action) => {
         case ADD_FAV:
             return{
                 ...state,
-                myFavorites: [...state.myFavorites, action.payload]
+                myFavorites: [...state.allCharacters, action.payload],
+                allCharacters: [...state.allCharacters, action.payload]
             }
+
         case REMOVE_FAV:
             return{
                 ...state, 
@@ -19,6 +22,27 @@ const reducer = (state = initialState, action) => {
                 }) 
                 //Estoy diciendo que me devuelva todos los personajes cuyo id sea distinto al id de action.payload
             }
+        
+        case FILTER:
+            return{
+                ...state,
+                myFavorites: [...state.allCharacters].filter((character) => character?.gender === action.payload)   
+            }
+        
+            case ORDER:
+                // Determina si se debe ordenar de forma ascendente o descendente
+                if (action.payload === 'Ascendente') {
+                  return {
+                    ...state,
+                    myFavorites: [...state.myFavorites].sort((character1, character2) => character1.id - character2.id)
+                  }
+                } else if (action.payload === 'Descendente') {
+                  return{
+                    ...state,
+                  myFavorites: [...state.myFavorites].sort((character1, character2) => character2.id - character1.id)
+                  }
+                }
+
         default:
             return{
                 ...state

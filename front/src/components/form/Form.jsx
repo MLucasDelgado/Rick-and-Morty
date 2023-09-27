@@ -6,7 +6,7 @@ const Form = ({login}) => {
     const [userData, setUserData] = useState({
         email: '',
         password: ''
-      })
+    })
 
     const [errors, setErrors] = useState({})
       
@@ -16,7 +16,7 @@ const Form = ({login}) => {
           [event.target.name]: event.target.value,
         });
     }
-        // aca llamamos a la funcion validation con los valores de mi estato (userData) y utilizamos el setErros para que se vaya actualizando a medida que escribimos.
+        // aca llamamos a la funcion validation con los valores de mi estado (userData) y utilizamos el setErros para que se vaya actualizando a medida que escribimos.
     useEffect(() => {
         if(userData.email !== '' || userData.password !== ''){
             setErrors(validation(userData))
@@ -35,7 +35,7 @@ const Form = ({login}) => {
                 id="email"
                 type="email" 
                 name="email"
-                placeholder="Escriba su email"
+                placeholder="Example@gmail.com"
                 onChange={handleChange}
                 value={userData.email}
             />
@@ -47,7 +47,7 @@ const Form = ({login}) => {
                 id="password"
                 type="password" 
                 name="password" 
-                placeholder="Escriba su contraseña"
+                placeholder="*******"
                 onChange={handleChange}
                 value={userData.password}  
             />
