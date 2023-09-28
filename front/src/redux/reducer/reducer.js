@@ -24,10 +24,22 @@ const reducer = (state = initialState, action) => {
             }
         
         case FILTER:
-            return{
-                ...state,
-                myFavorites: [...state.allCharacters].filter((character) => character?.gender === action.payload)   
+            let filteredCharacters;
+
+            if (action.payload === 'all') {
+              // Si se selecciona "Todos", mostrar todos los personajes sin filtrar.
+              filteredCharacters = state.allCharacters;
+            } else {
+              // Aplicar el filtro seleccionado.
+              filteredCharacters = state.allCharacters.filter(
+                (character) => character?.gender === action.payload
+              );
             }
+      
+            return {
+              ...state,
+              myFavorites: filteredCharacters,
+            };
         
             case ORDER:
                 // Determina si se debe ordenar de forma ascendente o descendente
