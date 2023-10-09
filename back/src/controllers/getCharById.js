@@ -1,4 +1,4 @@
-const URL = 'https://rickandmortyapi.com/api/character/'
+const URL = 'https://rickandmortyapi.com/api/character'
 const axios = require('axios')
 
 
