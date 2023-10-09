@@ -12,7 +12,7 @@ import Nav from './components/nav/Nav';
 
 /* Hooks */
 import { useState, useEffect } from 'react';
-import { Routes, Route,  useLocation, useNavigate } from 'react-router-dom'
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 
 /* Dependence */
 import axios from 'axios';
@@ -22,35 +22,32 @@ import axios from 'axios';
 const App = () => {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
-  const onClose = (id) =>{
+  const onClose = (id) => {
     const charactersFiltered = characters.filter((character) => {
       return character.id !== id
     })
-    
+
     setCharacters(charactersFiltered);
   }
 
-  const onSearch = (id) => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`)
-    .then(({ data }) => {
+  const onSearch = async (id) => {
+    try {
+      const response = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
+      const data = response.data;
+
       if (data.name) {
-        /* character es el parámetro de la función de flecha que representa cada elemento del array characters que se
-          está evaluando en ese momento durante la iteración.
-          character.id es la propiedad id del elemento actual en el array characters.
-          data.id es la propiedad id de data, que es el resultado de la solicitud AJAX a la API
-          La expresión character.id === data.id compara si la propiedad id del elemento actual (character.id) es igual a la propiedad id de data.
-        */
-        if (!characters.some(character => character.id === data.id)) {
+        if (!characters.some((character) => character.id === data.id)) {
           setCharacters((oldChars) => [...oldChars, data]);
         } else {
           alert('Este personaje ya está en la lista.');
         }
       } 
-    })
-    .catch(() => {
-      alert('¡No hay personajes con este ID!');
-    });
-  }
+      
+    } catch (error) {
+      alert("No se encontró un personaje con ese ID");
+      throw Error(error.message)
+    }
+  };
 
 
   const [access, setAccess] = useState(false)
@@ -65,18 +62,22 @@ const App = () => {
   //     navigate('/home')
   //   } 
   // }
-  function login(userData) {
-    const { email, password } = userData;
-    const URL = 'http://localhost:3001/rickandmorty/login/';
-    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-       const { access } = data;
-       setAccess(data);
-       access && navigate('/home');
-    });
- }
-
+  const login = async (userData) => {
+    try {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      const { data } = await axios(URL + `?email=${email}&password=${password}`)
+      const { access } = data;
+      setAccess(data);
+      access && navigate('/home');
+    }
+    catch (error) {
+      throw Error(error.message)
+    }
+  }
+  
   useEffect(() => {
-    !access && navigate('/');   
+    !access && navigate('/');
   }, [access]);
 
   return (
@@ -85,12 +86,12 @@ const App = () => {
       no se mostrara la barra de navegacion. De lo contrario si se muestra la barra de navegacion*/}
       {location.pathname !== '/' ? <Nav onSearch={onSearch} /> : ''}
       <Routes>
-          <Route path='/' element={<Form login={login}/>} />
-          <Route path="/home" element={ <Cards characters={characters} onClose={onClose}/>} />
-          <Route path="/about" element={<About/>} />
-          <Route path="/detail/:id" element={<Detail/>} />
-          <Route path='/favorites' element={<Favorites/>} />
-          <Route path='*' element={<Error404/>} />
+        <Route path='/' element={<Form login={login} />} />
+        <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path='/favorites' element={<Favorites />} />
+        <Route path='*' element={<Error404 />} />
       </Routes>
 
     </div>
