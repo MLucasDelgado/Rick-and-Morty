@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.fondo {
+    background-image: url('../img/rick1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    width: 100vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Cambiado a 100vh para que cubra toda la altura de la pantalla */
+}
+
+.form{
+    background: linear-gradient(to right, rgb(14, 15, 15), rgb(10, 212, 219));
+    padding: 4em 2em;
+    margin: 0 auto;
+    width: 350px;
+    opacity: 0.9;
+    
+}
+
+.container{
+    text-align: left; /* Alinea el contenido del div a la izquierda */
+    padding: 20px;
+}
+
+.section{
+    display: block; /* Para que los elementos se muestren uno debajo del otro */
+    margin-bottom: 10px;
+}
+
+.input {
+    width: 100%;
+    border: 1.5px solid gray;
+}
+
+.label {
+    text-align: left;
+    padding-right: 10px;
+    font-size: 1.1em;
+    display: inline-block; /* Para evitar que los labels ocupen todo el ancho */
+    width: auto; /* Establece el ancho de los labels según su contenido */
+}

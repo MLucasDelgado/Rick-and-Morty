@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import validation from "./validation";
+import style from './Form.module.css';
 
 const Form = ({login}) => {
   
@@ -29,33 +30,43 @@ const Form = ({login}) => {
     }
    
     return(
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email: </label>
-            <input 
-                id="email"
-                type="email" 
-                name="email"
-                placeholder="Example@gmail.com"
-                onChange={handleChange}
-                value={userData.email}
-            />
-            {errors.email !== '' && <p style={{ color: 'red' }}>{errors.email}</p>}
-            <br />
+        <div className={style.fondo}>
+            <div className="{style.container}">
+                <form onSubmit={handleSubmit} className={style.form}>
+                    
+                    <section className={style.section}>
+                        <label htmlFor="email" className={style.label}>Email: </label>
+                        <input 
+                            id="email"
+                            type="email" 
+                            name="email"
+                            placeholder="Example@gmail.com"
+                            onChange={handleChange}
+                            value={userData.email}
+                            className={style.input}
+                        />
+                        {errors.email !== '' && <p style={{ color: 'red' }}>{errors.email}</p>}
+                        <br />
+                    </section>
 
-            <label htmlFor="password">Password: </label>
-            <input 
-                id="password"
-                type="password" 
-                name="password" 
-                placeholder="*******"
-                onChange={handleChange}
-                value={userData.password}  
-            />
-            {errors.password !== '' && <p style={{ color: 'red' }}>{errors.password}</p>}            
-            <br />
-
-            <button>Submit</button>
-        </form>
+                    <section className={style.section}>
+                        <label htmlFor="password" className={style.label}>Password: </label>
+                        <input 
+                            id="password"
+                            type="password" 
+                            name="password" 
+                            placeholder="*******"
+                            onChange={handleChange}
+                            value={userData.password} 
+                            className={style.input} 
+                        />
+                        {errors.password !== '' && <p style={{ color: 'red' }}>{errors.password}</p>}            
+                        <br />
+                    </section>
+                    <button type="submit" className={style.boton}>Submit</button>
+                </form>
+            </div>
+        </div>
     )
 }
 

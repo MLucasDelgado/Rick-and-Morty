@@ -1,0 +1,20 @@
+.nav {
+     margin-bottom: 4em; 
+    /* position: relative; */
+    position: relative;
+   
+}
+
+.navContainer {
+    display: flex;
+    justify-content: space-around; /* Distribuye los elementos horizontalmente */
+    align-items: center; /* Alinea los elementos verticalmente al centro */
+    padding: 10px; /* Espacio interior para separar los elementos del borde */
+     /* Centra horizontalmente el contenedor de navegación */
+     background-color: #333;
+     position: fixed; /* Cambia a posición fija */
+     top: 0;
+     left: 0;
+     right: 0;
+     width: 100%; /* Establece la anchura al 100% para que cubra todo el ancho de la página */
+}

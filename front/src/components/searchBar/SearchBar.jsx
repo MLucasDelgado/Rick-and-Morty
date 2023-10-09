@@ -1,4 +1,5 @@
 import { useState } from "react";
+import style from './SearchBar.module.css'
 
 const SearchBar = ({ onSearch }) => {
 
@@ -18,6 +19,7 @@ const SearchBar = ({ onSearch }) => {
             onChange={handleChange} 
             value={id} 
             placeholder="id"
+            className={style.input1}
          />
          <button onClick={() => handleSearch()}>Agregar</button>
       </div>

@@ -1,0 +1,34 @@
+.containerCard{
+    background-color: rgb(67, 161, 138);
+    padding: 0.8em 0.5em ;
+    border-radius: 2em 2em;
+    margin: 1em auto;
+}
+
+.container2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em; 
+}
+
+.imagen{
+    border-radius: 100%;
+    width: 60%;
+}
+
+.button{
+    
+}
+
+.nombre{
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    padding: 0.6em 0;
+  
+}
+
+h2{
+    color: blue;
+}
