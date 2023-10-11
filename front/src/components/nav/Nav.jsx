@@ -10,8 +10,8 @@ const Nav = ({onSearch}) => {
             <nav className={style.navContainer}>
                 <Button link={'/home'} text='Home' />
                 <Button link={'/about'} text='About' />
-                <Button link={'/favorites'} text='Favorites'/>
-                <Button link={'/'} text='Logout'/>
+                <Button link={'/fav'} text='Favorites'/>
+                <Button link={'/login'} text='Logout'/>
                 <SearchBar onSearch={onSearch} />
             </nav>
         </div>

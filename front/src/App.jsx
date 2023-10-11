@@ -77,20 +77,20 @@ const App = () => {
   }
   
   useEffect(() => {
-    !access && navigate('/');
+    !access && navigate('/login');
   }, [access]);
 
   return (
     <div className='App'>
       {/* Aca estoy diciendo que si estoy parado en la ruta principal de la pagina, es decir, en el inicio
       no se mostrara la barra de navegacion. De lo contrario si se muestra la barra de navegacion*/}
-      {location.pathname !== '/' ? <Nav onSearch={onSearch} /> : ''}
+      {location.pathname !== '/login' ? <Nav onSearch={onSearch} /> : ''}
       <Routes>
-        <Route path='/' element={<Form login={login} />} />
+        <Route path='/login' element={<Form login={login} />} />
         <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
-        <Route path='/favorites' element={<Favorites />} />
+        <Route path='/fav' element={<Favorites />} />
         <Route path='*' element={<Error404 />} />
       </Routes>
 
