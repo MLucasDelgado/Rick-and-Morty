@@ -12,7 +12,7 @@ const deleteFav = (req, res) => {
     const { id } = req.params;
     
     myFavorites = myFavorites.filter((character) => {
-        // Me estoy quedando con todos los personajes cuyo id sean distintos al id que me envian por parametro
+        // Me estoy quedando con todos los personajes cuyo id sean distintos al id que me envian por parametro.
         return character.id != id;
     })
 
