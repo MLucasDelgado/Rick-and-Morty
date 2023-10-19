@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import style from './Detail.module.css';
 
 const Detail = () => {
     // useParams me retorna un objeto, y le indicamos que nos de el id con un destructuring.
@@ -24,7 +25,7 @@ const Detail = () => {
      }, [id]); // El cilo de dependecia del array es de update, se actualiza
 
     return(
-        <div>
+        <div className={style.fondo}>
             <h2>Name: {character?.name}</h2>
             <h2>Species: {character?.species}</h2>
             <h2>Gender: {character?.gender}</h2>

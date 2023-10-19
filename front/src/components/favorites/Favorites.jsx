@@ -38,12 +38,15 @@ const Favorites = () => {
          </select>
          
          {
-            myFavorites?.map(({id, name, image, gender}) => {
+            myFavorites?.map(({id, name, origin, species, status, image, gender}) => {
                return(
                   <Card
                      key = {id}
                      id={id}
                      name = {name}
+                     origin={origin}
+                     species={species}
+                     status={status}
                      image = {image}
                      gender = {gender}
                   />
