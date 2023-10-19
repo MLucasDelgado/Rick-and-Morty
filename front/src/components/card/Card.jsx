@@ -5,7 +5,7 @@ import { addFav, removeFav } from "../../redux/actions/actions";
 import style from './Card.module.css'
 
 
-const Card = ({ id, name, image, onClose, gender }) => {
+const Card = ({ id, name, image, onClose, gender, origin, species, status }) => {
    
    const dispatch = useDispatch();
 
@@ -17,7 +17,7 @@ const Card = ({ id, name, image, onClose, gender }) => {
          dispatch(removeFav(id))
       } else {
          setIsFav(true)
-         dispatch(addFav({ id, name, image, onClose, gender }))
+         dispatch(addFav({ id, name, image, onClose, gender, origin, species, status }))
       }
    } 
 

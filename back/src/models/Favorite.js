@@ -14,11 +14,11 @@ module.exports = (sequelize) => {
       status: {
          // ENUM, significa que yo indico la cantidad exacta de datos que tienen que ingresar
          type: DataTypes.ENUM('Alive', 'Dead', 'unknown'),
-         allowNull: true
+         allowNull: false
       },
       species: {
          type: DataTypes.STRING,
-         allowNull: true
+         allowNull: false
       },
       gender:{
          type: DataTypes.ENUM('Female', 'Male', 'Genderless', 'unknown'),
@@ -26,7 +26,7 @@ module.exports = (sequelize) => {
       },
       origin: {
          type: DataTypes.STRING, // DataTypes.json si trabajamos con objeto {name: Earth, ulr:https://algo}
-         allowNull: true
+         allowNull: false
       },
       image: {
          type: DataTypes.STRING,
