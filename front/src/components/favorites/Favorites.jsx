@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Card from "../card/Card";
 import { filterCards, orderCards } from "../../redux/actions/actions";
 import { useState } from "react";
+import style from './Favorites.module.css'
 
 const Favorites = () => {
    const myFavorites = useSelector((state) => state.myFavorites)
@@ -21,38 +22,42 @@ const Favorites = () => {
 
 
 
-   return(
-      <div>
-         {/* <Cards characters={myFavorites} /> */}
-         <select onChange={handleOrder} name="" id="">
-            <option value="Ascendente">Ascendente</option>
-            <option value="Descendente">Descendente</option>
-         </select>
+   return (
+      <div className={style.container}>
+         <div className={style.contenedor}>
+            <select onChange={handleOrder} name="" id="" className={style.selects}>
+               <option value="Ascendente" className={style.options}>Ascendente</option>
+               <option value="Descendente" className={style.options}>Descendente</option>
+            </select>
 
-         <select onChange={handleFilter} name="" id="">
-         <option value="Male">Male</option>
-         <option value="Female">Female</option>
-         <option value="Genderless">Genderless</option>
-         <option value="unknown">unknown</option>
-         <option value="all">All</option>
-         </select>
-         
-         {
-            myFavorites?.map(({id, name, origin, species, status, image, gender}) => {
-               return(
-                  <Card
-                     key = {id}
-                     id={id}
-                     name = {name}
-                     origin={origin}
-                     species={species}
-                     status={status}
-                     image = {image}
-                     gender = {gender}
-                  />
-               )
-            })
-         }
+            <select onChange={handleFilter} name="" id="" className={style.selects}>
+               <option value="Male" className={style.options}>Male</option>
+               <option value="Female" className={style.options}>Female</option>
+               <option value="Genderless" className={style.options}>Genderless</option>
+               <option value="unknown" className={style.options}>unknown</option>
+               <option value="all" className={style.options}>All</option>
+            </select>
+         </div>
+
+         <div className={style.cartas}>
+
+            {
+               myFavorites?.map(({ id, name, origin, species, status, image, gender }) => {
+                  return (
+                     <Card
+                        key={id}
+                        id={id}
+                        name={name}
+                        origin={origin}
+                        species={species}
+                        status={status}
+                        image={image}
+                        gender={gender}
+                     />
+                  )
+               })
+            }
+         </div>
       </div>
    )
 }

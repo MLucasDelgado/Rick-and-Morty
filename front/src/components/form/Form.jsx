@@ -45,7 +45,7 @@ const Form = ({login}) => {
                             value={userData.email}
                             className={style.input}
                         />
-                        {errors.email !== '' && <p style={{ color: 'red' }}>{errors.email}</p>}
+                        {errors.email !== '' && <p style={{ color: 'white' }}>{errors.email}</p>}
                         <br />
                     </section>
 
@@ -60,7 +60,7 @@ const Form = ({login}) => {
                             value={userData.password} 
                             className={style.input} 
                         />
-                        {errors.password !== '' && <p style={{ color: 'red' }}>{errors.password}</p>}            
+                        {errors.password !== '' && <p style={{ color: 'white' }}>{errors.password}</p>}            
                         <br />
                     </section>
                     <button type="submit" className={style.boton}>Submit</button>

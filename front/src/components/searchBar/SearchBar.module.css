@@ -1,4 +1,33 @@
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .input1{
-    margin-right: 2em;
-    width: 55%;
+    width: 100%;
+    padding: 6px 0;
+    border-radius: 1em 0 0 1em;
+    border: none;
+    background: rgba(17, 20, 19, 0.801);
+    border-right: 1px solid gray;
+    color: white;
+    padding-left: 1rem;
+}
+
+::placeholder{
+    color: gray;
+}
+
+.boton{
+    border: none;
+    background: rgba(69, 173, 137, 0.596);
+    border-radius: 0 1em 1em 0;
+    padding: 3px .6em !important;
+    color: white;
+}
+
+.boton:hover{
+    color: rgb(8, 218, 137);
 }

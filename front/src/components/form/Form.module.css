@@ -8,43 +8,67 @@
     background-image: url('../img/rick1.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100% 100%;
+    background-size: cover;
     width: 100vw;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Cambiado a 100vh para que cubra toda la altura de la pantalla */
+    min-height: 100vh;
 }
 
-.form{
-    background: linear-gradient(to right, rgb(14, 15, 15), rgb(10, 212, 219));
-    padding: 4em 2em;
-    margin: 0 auto;
-    width: 350px;
-    opacity: 0.9;
-    
+.form {
+    backdrop-filter: blur(2px);
+    background-color: rgba(49, 95, 80, 0.5); 
+    align-items: center;
+    border-radius: 10px;
+    padding: 4rem 3.5rem;
 }
 
 .container{
-    text-align: left; /* Alinea el contenido del div a la izquierda */
+    text-align: left; 
     padding: 20px;
 }
 
 .section{
-    display: block; /* Para que los elementos se muestren uno debajo del otro */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 10px;
 }
 
 .input {
     width: 100%;
-    border: 1.5px solid gray;
+    border: 1.5px solid rgb(0, 0, 0);
+    border-radius: 4px 4px;
+    padding: 3px 5px;
 }
 
 .label {
-    text-align: left;
-    padding-right: 10px;
+    text-align: center;
     font-size: 1.1em;
-    display: inline-block; /* Para evitar que los labels ocupen todo el ancho */
-    width: auto; /* Establece el ancho de los labels según su contenido */
+    width: 100%;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 1px black;
+    margin-bottom: .5em; 
+    padding: 0;
+}
+
+.boton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+}
+
+.boton:hover{
+    background-color: rgba(25, 36, 32, 0.5);
+    border: 1px solid white;
+    color: white;
+}
+
+::placeholder {
+    align-items: center;
+    text-align: center;
 }

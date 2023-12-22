@@ -4,4 +4,15 @@
     justify-content: space-around;
     align-content: center;
     gap: 1.5em;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    background-image: url('../img/rick1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
 }

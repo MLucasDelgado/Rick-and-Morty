@@ -32,7 +32,7 @@ const Card = ({ id, name, image, onClose, gender, origin, species, status }) => 
    }, [myFavorites]);
 
 
-   const { pathname } = useLocation()
+   const location = useLocation();
    return(
       <div className={style.containerCard}>
          <div className={style.container2}>
@@ -45,20 +45,20 @@ const Card = ({ id, name, image, onClose, gender, origin, species, status }) => 
             }
 
             {
-               pathname !== '/favorites' ?
-               <button className={style.button} onClick={() => onClose(id)}>X</button>
+               location.pathname !== '/fav' ?
+               <button className={style.button1} onClick={() => onClose(id)}>X</button>
                : ''
             }
          </div>
-         
          <Link to={`/detail/${id}`}>
+            <img className={style.imagen} src={image} alt={name} />
             <h2 className={style.nombre}>{name}</h2>
          </Link>
          {/* <h2>{species}</h2>
          <h2>{gender}</h2>
          <h2>{status}</h2>
          <h2>{origin}</h2> */}
-         <img className={style.imagen} src={image} alt={name} />
+         
       </div>
    )
 }
